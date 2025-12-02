@@ -2,10 +2,8 @@
 @section('title', 'Conferences')
 @section('content')
     <div class="container mt-4">
-        @if (session('success'))
-            <div class="alert alert-success">
-                {{session('success')}}
-            </div>
+        @if(session('success'))
+            <div class="alert alert-success">{{session('success')}}</div>
         @endif
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h1 class="h3 mb-0">Conferences</h1>
@@ -13,7 +11,6 @@
                 <a href="{{route('conferences.create')}}" class="btn btn-primary">New conference</a>
             @endauth
         </div>
-
         @forelse($conferences as $conference)
             <div class="card mb-3">
                 <div class="card-body d-flex justify-content-between align-items-center">
@@ -29,10 +26,10 @@
                         </div>
                     </div>
                     <div class="d-flex gap-2">
-                        <a href="{{route('conference.show', $conference)}}" class="btn btn-sm btn-outline-secondary">View</a>
+                        <a href="{{route('conferences.show', $conference)}}" class="btn btn-sm btn-outline-secondary">View</a>
                         @auth
                             <a href="{{route('conferences.edit', $conference)}}" class="btn btn-sm btn-outline-primary">Edit</a>
-                            <form action="{{route('conference.destroy', $conference)}}" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you wanto to delete this conference?');">
+                            <form action="{{route('conferences.destroy', $conference)}}" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you wanto to delete this conference?');">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
