@@ -3,7 +3,7 @@
 @section('content')
     <div class="container mt-4">
         @if(session('success'))
-            <div class="alert alert-success">{{session('success')}}</div>
+            <div id="flash-success" data-message="{{session('success')}}"></div>
         @endif
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h1 class="h3 mb-0">Conferences</h1>
@@ -29,10 +29,10 @@
                         <a href="{{route('conferences.show', $conference)}}" class="btn btn-sm btn-outline-secondary">View</a>
                         @auth
                             <a href="{{route('conferences.edit', $conference)}}" class="btn btn-sm btn-outline-primary">Edit</a>
-                            <form action="{{route('conferences.destroy', $conference)}}" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you wanto to delete this conference?');">
+                            <form action="{{route('conferences.destroy', $conference)}}" method="POST" class="d-inline delete-form">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+                                <button type="button" class="btn btn-sm btn-outline-danger delete-btn">Delete</button>
                             </form>
                         @endauth
                     </div>
