@@ -41,7 +41,7 @@ class ConferenceController extends Controller
             'participantCount' => ['required', 'integer', 'min:0'],
         ]);
         $conference = Conference::factory()->create($validated);
-        return redirect()->route('conferences.show', $conference)->with('success', 'Conference created');
+        return redirect()->route('conferences.show', $conference)->with('success', __('messages.conference.messages.created'));
     }
 
     /**
@@ -75,7 +75,7 @@ class ConferenceController extends Controller
             'participantCount' => ['required', 'integer', 'min:0'],
         ]);
         $conference->update($validated);
-        return redirect()->route('conferences.show', $conference)->with('success', 'Conference updated');
+        return redirect()->route('conferences.show', $conference)->with('success', __('messages.conference.messages.updated'));
     }
 
     /**
@@ -84,6 +84,6 @@ class ConferenceController extends Controller
     public function destroy(Conference $conference): RedirectResponse
     {
         $conference->delete();
-        return redirect()->route('conferences.index')->with('success', 'Conference deleted');
+        return redirect()->route('conferences.index')->with('success', __('messages.conference.messages.deleted'));
     }
 }

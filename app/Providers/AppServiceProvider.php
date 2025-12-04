@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Http\Middleware\LocaleMiddleware;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
@@ -21,7 +22,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $locale = Session::get('locale', config('app.locale'));
-        App::setLocale($locale);
+        if (isset($this->app['router'])) {
+            $this->app['router']->pushMiddlewareToGroup('web', LocaleMiddleware::class);
+        }
     }
 }

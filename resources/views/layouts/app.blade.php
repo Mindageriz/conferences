@@ -51,10 +51,6 @@
             </div>
         </div>
     </nav>
-    <p style="position:fixed;top:5px;right:10px;z-index:9999;background:#fff;padding:2px 6px;border:1px solid #ccc;">
-        Locale: {{ app()->getLocale() }}
-    </p>
-
     <div class="container">
         @yield('content')
     </div>

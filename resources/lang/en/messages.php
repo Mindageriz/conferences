@@ -26,7 +26,8 @@ return [
         'edit'         => 'Edit',
         'delete'       => 'Delete',
         'back'         => 'Back',
-        'back_to_list' => 'Back to list',
+        'no_conferences' => 'No conferences found.',
+        'save' => 'Save',
 
         'fields' => [
             'title'        => 'Title',
@@ -44,6 +45,7 @@ return [
             'deleted' => 'Conference deleted',
             'confirm_delete_title' => 'Are you sure?',
             'confirm_delete_text'  => 'This action cannot be undone.',
+            'cancel'=>'Cancel',
         ],
     ],
 ];

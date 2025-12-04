@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection SpellCheckingInspection */
 
 return [
     'nav' => [
@@ -26,7 +26,8 @@ return [
         'edit'         => 'Redaguoti',
         'delete'       => 'Šalinti',
         'back'         => 'Atgal',
-        'back_to_list' => 'Grįžti',
+        'no_conferences' => 'Konferencijų nėrasta.',
+        'save' => 'Išsaugoti',
 
         'fields' => [
             'title'        => 'Pavadinimas',
@@ -44,6 +45,7 @@ return [
             'deleted' => 'Konferencija pašalinta',
             'confirm_delete_title' => 'Ar tikrai?',
             'confirm_delete_text'  => 'Šio veiksmo atstatyti negalima.',
+            'cancel'=>'Atšaukti',
         ],
     ],
 ];

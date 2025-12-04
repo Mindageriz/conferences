@@ -7,11 +7,11 @@
         </div>
         <div class="card">
             <div class="card-body">
-                <h1 class="h4 mb-3">Create conference</h1>
+                <h1 class="h4 mb-3">{{__('messages.conference.create_title')}}</h1>
                 <form action="{{route('conferences.store')}}" method="POST">
                     @csrf
                     @include('conferences.form', ['conference' => null])
-                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="submit" class="btn btn-primary">{{__('messages.conference.save')}}</button>
                 </form>
             </div>
         </div>

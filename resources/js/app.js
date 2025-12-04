@@ -7,14 +7,19 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.delete-btn').forEach(button => {
         button.addEventListener('click', function () {
             const form = this.closest('.delete-form');
-            window.Swal.fire({
-                title: 'Are you sure?',
-                text: 'This action cannot be undone.',
+            const title   = this.dataset.confirmTitle || 'Are you sure?';
+            const text    = this.dataset.confirmText || 'This action cannot be undone.';
+            const confirm = this.dataset.confirmConfirm || 'Delete';
+            const cancel = this.dataset.confirmCancel || 'Cancel';
+            Swal.fire({
+                title: title,
+                text: text,
                 icon: 'warning',
                 showCancelButton: true,
-                confirmButtonColor: "#d33",
-                cancelButtonColor: "#6c757d",
-                confirmButtonText: 'Yes, delete it'
+                cancelButtonText: cancel,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#6c757d',
+                confirmButtonText: confirm,
             }).then((result) => {
                 if(result.isConfirmed) {
                     form.submit();
